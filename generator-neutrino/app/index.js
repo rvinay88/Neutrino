@@ -39,14 +39,15 @@ var NeutrinoGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     // Sass architecture
-    var atoms = ["grids", "type", "colors", "animations", "helpers"];
+    var atoms = ["grids", "type", "colors", "helpers"];
       var helpers = ["functions", "mixins", "utilities"];
 
     var molecules = ["headings", "links","tables", "forms", "buttons", "lists", "media", "progress", "labels", "badges", "wells", "dropdowns", "tooltips", ];
         var files = ["variables","mixins","extends"];
 
-    var organisms = ["alerts", "button-groups", "breadcrumbs", "pagination", "tabs"];
-    var templates = ["header", "footer", "navigation", "article", "sidenav", "toolbar"];
+    var organisms = ["alerts", "button-groups", "breadcrumbs", "pagination", "tabs", "media-object"];
+    var templates = ["header", "footer", "navigation", "article", "sidenav", "toolbar", "search"];
+    var pages     = ["dashboard", "user-settings"];
 
     this.mkdir('stylesheets');
     this.mkdir('scripts');
@@ -83,6 +84,21 @@ var NeutrinoGenerator = yeoman.generators.Base.extend({
     //Generate Organisms and internal files
     for(var i = 0; i < organisms.length; i++) {
       this.mkdir('scss/organisms/'+organisms[i]);
+      this.copy('_empty.scss', 'scss/organisms/'+organisms[i]+'/_'+organisms[i]+'.scss');
+    }
+
+    //Generate templates
+
+    for(var i = 0; i < templates.length; i++) {
+      this.mkdir('scss/templates/'+templates[i]);
+      this.copy('_empty.scss', 'scss/templates/'+templates[i]+'/_'+templates[i]+'.scss');
+    }
+
+    // Generating Pages
+
+    for(var i = 0; i < pages.length; i++) {
+      this.mkdir('scss/pages/'+pages[i]);
+      this.copy('_empty.scss', 'scss/pages/'+pages[i]+'/_'+pages[i]+'.scss');
     }
 
     this.copy('_package.json', 'package.json');
