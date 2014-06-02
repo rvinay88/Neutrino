@@ -42,7 +42,7 @@ var NeutrinoGenerator = yeoman.generators.Base.extend({
     var atoms = ["grids", "type", "colors", "helpers"];
       var helpers = ["functions", "mixins", "utilities"];
 
-    var molecules = ["headings", "links","tables", "forms", "buttons", "lists", "media", "progress", "labels", "badges", "wells", "dropdowns", "tooltips", ];
+    var molecules = ["headings", "dividers","links","tables", "forms", "buttons", "lists", "media", "progress", "labels", "badges", "wells", "dropdowns", "tooltips", ];
         var files = ["variables","mixins","extends"];
 
     var organisms = ["alerts", "button-groups", "breadcrumbs", "pagination", "tabs", "media-object"];
@@ -59,6 +59,7 @@ var NeutrinoGenerator = yeoman.generators.Base.extend({
     this.copy('style.scss', 'style.scss');
 
     // Generate atoms
+    this.copy('_globals.scss', 'scss/atoms/_globals.scss');
     for(var i = 0; i < atoms.length; i++) {
       this.mkdir('scss/atoms/'+atoms[i]);
       if(atoms[i]!='helpers') {
