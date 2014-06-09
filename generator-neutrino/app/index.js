@@ -42,7 +42,7 @@ var NeutrinoGenerator = yeoman.generators.Base.extend({
     var atoms = ["reset", "grids", "type", "colors", "helpers", "animations"];
       var helpers = ["breakpoints", "functions", "mixins", "utilities"];
 
-    var molecules = ["accordions" , "headings", "links", "dividers",,"tables", "forms", "buttons", "lists", "media", "panels", "progress", "labels", "badges", "wells", "dropdowns", "tooltips", "tabs", "tags","sliders", "switches", "updates"];
+    var molecules = ["accordions" , "headings", "links", "dividers","tables", "forms", "buttons", "lists", "media", "panels", "progress", "labels", "badges", "tags", "wells", "dropdowns", "tooltips", "tabs", "sliders", "switches", "updates"];
         var files = ["variables","mixins","extends"];
 
     var organisms = ["alerts", "button-groups", "breadcrumbs", "pagination", "tabs", "media-object", "list-group", "modals", "cards", "popover"];
@@ -56,7 +56,7 @@ var NeutrinoGenerator = yeoman.generators.Base.extend({
     this.mkdir('scss');
 
     //Generate manifest SCSS file
-    this.copy('style.scss', 'style.scss');
+    this.copy('style.scss', 'scss/style.scss');
 
     // Generate atoms
     this.copy('_globals.scss', 'scss/atoms/_globals.scss');
@@ -104,11 +104,14 @@ var NeutrinoGenerator = yeoman.generators.Base.extend({
 
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
+    this.copy('_Gruntfile.js', 'Gruntfile.js');
   },
 
   projectfiles: function () {
+    this.copy('.bowerrc', '.bowerrc');
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
+    this.copy('csscomb.json', '.csscomb.json');
   }
 });
 
