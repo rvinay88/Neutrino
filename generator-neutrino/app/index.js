@@ -39,14 +39,14 @@ var NeutrinoGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     // Sass architecture
-    var atoms = ["grids", "type", "colors", "helpers"];
-      var helpers = ["functions", "mixins", "utilities"];
+    var atoms = ["reset", "grids", "type", "colors", "helpers", "animations"];
+      var helpers = ["breakpoints", "functions", "mixins", "utilities"];
 
-    var molecules = ["headings", "dividers","links","tables", "forms", "buttons", "lists", "media", "progress", "labels", "badges", "wells", "dropdowns", "tooltips", ];
+    var molecules = ["accordions" , "headings", "links", "dividers",,"tables", "forms", "buttons", "lists", "media", "panels", "progress", "labels", "badges", "wells", "dropdowns", "tooltips", "tabs", "tags","sliders", "switches", "updates"];
         var files = ["variables","mixins","extends"];
 
-    var organisms = ["alerts", "button-groups", "breadcrumbs", "pagination", "tabs", "media-object"];
-    var templates = ["header", "footer", "navigation", "article", "sidenav", "toolbar", "search"];
+    var organisms = ["alerts", "button-groups", "breadcrumbs", "pagination", "tabs", "media-object", "list-group", "modals", "cards", "popover"];
+    var templates = ["header", "footer", "navbar", "article", "sidenav", "toolbar", "search"];
     var pages     = ["dashboard", "user-settings"];
 
     this.mkdir('stylesheets');
